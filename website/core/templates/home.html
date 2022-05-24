@@ -4,9 +4,12 @@
 
 <h1>Waterfront Park POA Community Posts</h1>
 <br/>
-{% if user.is_authenticated %}
+{% if user.is_superuser %}
 <a type="button" class="btn btn-primary" href="{% url 'add_post' %}">Add Post</a>
-
+{% else %}
+    <p>Hello, {{user.username}} </p>
+{% endif %}
+{% if user.is_authenticated %}
 <div></div>
 {% for post in object_list %}
 <br/>
